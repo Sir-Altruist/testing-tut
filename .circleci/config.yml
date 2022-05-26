@@ -2,6 +2,10 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+filter-branches-only: &filter-branches-only
+  filters:
+    branches:
+      only: main
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -31,4 +35,5 @@ jobs:
 workflows:
   Trial:
     jobs:
-      - one
+      - one:
+        <<: *filter-branches-only
